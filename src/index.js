@@ -92,7 +92,7 @@ function func1(str) {
 /**
  * const func1 = function(str) {
  *   return str;
- * }
+ * };
  */
 console.log(func1("func1です"));
 
@@ -138,3 +138,15 @@ const fruits = ["りんご", "ばなな"];
 const [apple, banana] = fruits;
 const fruitsMessage = `お店にあるのは${apple}と${banana}です`;
 console.log(fruitsMessage);
+
+
+/**
+ * デフォルト値
+ * 引数を定義する時、分割代入などで使える
+ */
+
+// 引数にデフォルト値を設定していない場合、引数を渡さずに関数を呼び出すとundefinedと表示される
+// デフォルト値を設定しておけば、引数を渡さなかった時はデフォルト値が代入される
+const sayHello = (name = "ゲスト") => console.log(`こんにちは！${name}さん`);
+sayHello("じゃけえ");
+sayHello();
