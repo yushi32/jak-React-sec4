@@ -76,7 +76,7 @@ const message1 = "私の名前は" + name + "です。年齢は" + age + "です
 console.log(message1);
 
 // テンプレート文字列
-const message2 = `私の名前は${name}です。年齢は${age}です。`;
+const message2 = `私の名前は${name}です。年齢は${age}歳です。`;
 console.log(message2);
 
 
@@ -113,3 +113,28 @@ const func3 = (num1, num2) => {
 };
 // const func3 = (num1, num2) => num1 + num2; とも書ける
 console.log(func3(10, 20));
+
+
+/**
+ * 分割代入
+ * オブジェクト・配列からプロパティ・要素を抜き出して、他の変数に代入すること
+ * 分割はオブジェクトから抜き出すの意で、抜き出すプロパティが1つでもok
+ */
+
+const myProfile = {
+  myName: "じゃけえ",
+  myAge: 28,
+};
+
+// const myMessage = `私は${myProfile.myName}です。年齢は${myProfile.myAge}歳です。`;
+const { myName, myAge } = myProfile;
+const myMessage = `私は${myName}です。年齢は${myAge}歳です。`;
+console.log(myMessage)
+
+// 配列の場合
+// オブジェクトのようにプロパティがないので、要素が順番に代入される
+const fruits = ["りんご", "ばなな"];
+//const fruitsMessage = `お店にあるのは${fruits[0]}と${fruits[1]}です`
+const [apple, banana] = fruits;
+const fruitsMessage = `お店にあるのは${apple}と${banana}です`;
+console.log(fruitsMessage);
