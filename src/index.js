@@ -150,3 +150,35 @@ console.log(fruitsMessage);
 const sayHello = (name = "ゲスト") => console.log(`こんにちは！${name}さん`);
 sayHello("じゃけえ");
 sayHello();
+
+
+/**
+ * スプレッド構文
+ * 1. 配列の展開
+ */
+
+// 配列の展開
+// 配列の要素を順に取り出す
+const arr1 = [1, 2];
+//console.log(arr1); // => [1, 2]
+//console.log(...arr1); // => 1 2
+
+const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]);
+// スプレッド構文で書き換えると以下
+sumFunc(...arr1);
+
+// まとめる
+const arr2 = [1, 2, 3, 4, 5];
+const [num1, num2, ...arrs] = arr2;
+console.log(num1); // => 1
+console.log(num2); // => 2
+console.log(arrs); // => [3, 4, 5] 配列をまとめて受け取っている
+
+// 配列のコピー、結合
+const arr3 = [10, 20];
+const arr4 = [30, 40];
+
+// それぞれの要素をコピー（展開して代入）して新しい配列に結合している
+const arr5 = [...arr3, ...arr4];
+console.log(arr5); // => [10, 20, 30, 40]
