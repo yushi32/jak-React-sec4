@@ -182,3 +182,43 @@ const arr4 = [30, 40];
 // それぞれの要素をコピー（展開して代入）して新しい配列に結合している
 const arr5 = [...arr3, ...arr4];
 console.log(arr5); // => [10, 20, 30, 40]
+
+/**
+ * mapやfilterを使った配列の処理
+ */
+
+// 従来はfor文
+const nameArr = ["田中", "山田", "じゃけえ"];
+for (let i = 0; i < nameArr.length; i++) {
+  console.log(nameArr[i]);
+}
+
+// mapメソッド
+// 配列の要素を1つずつ取り出して引数に与えられた関数（コールバック関数）を実行した結果からなる新しい配列を返す
+const nameArr2 = nameArr.map((name)=>{
+  return name;
+})
+console.log(nameArr2);
+//　上のfor文をmapメソッドで書き換える
+nameArr.map((name)=> console.log(name));
+// インデックス番号を扱いたい場合は、第二引数で受け取る
+nameArr.map((name, index) => {
+  console.log(`${index + 1}番目は${name}です`);
+})
+
+// filter
+// 条件に一致した（コールバック関数がtrueを返した）要素だけを返した新しい配列を生成する
+const numArr = [1, 2, 3, 4, 5];
+const newNumArr = numArr.filter((num) => {
+  return num % 2 === 1 // 条件文を満たす要素だけが返る
+})
+console.log(newNumArr);
+
+const newNameArr = nameArr.map((name) => {
+  if (name === "じゃけえ") {
+    return name
+  } else {
+    return `${name}さん`
+  }
+})
+console.log(newNameArr);
