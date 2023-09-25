@@ -248,3 +248,28 @@ const checkSum = (num1, num2) => {
   return num1 + num2 > 100 ? '100を超えています' : '許容範囲内です';
 }
 console.log(checkSum(50, 100));
+
+/**
+ * 論理演算子の本当の意味 && ||
+ * この2つは厳密には「かつ」「または」という意味ではない
+ */
+const flag1 = true;
+const flag2 = false;
+
+if (flag1 || flag2) {
+  console.log('1か2はtrue');
+}
+if (flag1 && flag2) {
+  console.log('1も2もtrue');
+}
+
+const n = 100;
+// ||　 => 左側がfalseとみなされる値なら右側を返す
+const fee = n || '金額未設定です';
+console.log(fee); // => 100
+// n = nullの場合, 金額未設定ですと出力される
+
+// &&. => 左側がtrueとみなされる値なら右側を返す
+const fee2 = n && '何か設定されました';
+console.log(fee2); // => '何か設定されました'
+// n = nullの場合、nullと出力される
