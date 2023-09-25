@@ -222,3 +222,29 @@ const newNameArr = nameArr.map((name) => {
   }
 })
 console.log(newNameArr);
+
+/**
+ * 三項演算子 ? :
+ */
+// 条件式 ? trueの場合の処理 : falseの場合の処理
+// 書き方
+const vaa = 1 > 0 ? "trueです" : "falseです";
+console.log(vaa);
+
+// サンプル1
+const num = 1300;
+// toLocaleStringメソッド...3桁区切りでカンマを打つ
+console.log(num.toLocaleString());
+
+// num = "1300"と文字列だった場合
+// toLacaleStringメソッドが機能せず1300と返される
+//　これを三項演算子を利用して場合分けする
+// typeof...オブジェクトのデータ型を判定する
+const formattedNum = typeof num === 'number' ? num.toLocaleString() : '数値を入力してください';
+console.log(formattedNum);
+
+// サンプル2
+const checkSum = (num1, num2) => {
+  return num1 + num2 > 100 ? '100を超えています' : '許容範囲内です';
+}
+console.log(checkSum(50, 100));
