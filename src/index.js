@@ -21,10 +21,21 @@ const onClickAdd = () => {
     completeButton.innerText = "完了"
     completeButton.addEventListener("click", () => {
         // 押されたボタンの親要素（p）を未完了リストから削除
-        const completeTarget = completeButton.parentNode.parentNode;
+        const addTarget = completeButton.parentNode.parentNode;
         // 共通処理なので、関数化して呼び出す
-        deleteFromIncompleteList(completeTarget);
-        document.getElementById("complete-list").appendChild(completeTarget);
+        deleteFromIncompleteList(addTarget);
+
+        // 完了・削除ボタンを消去
+        const buttons = addTarget.querySelectorAll("button");
+        buttons.forEach(button => {
+            button.remove();
+        });
+        // 戻すボタンを追加
+        const cancelButton = document.createElement("button");
+        cancelButton.innerText = "戻す";
+        addTarget.firstChild.appendChild(cancelButton);
+        // 完了リストに追加
+        document.getElementById("complete-list").appendChild(addTarget);
     });
 
     // buttonタグ（削除）の生成
