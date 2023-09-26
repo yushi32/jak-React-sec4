@@ -20,7 +20,9 @@ const onClickAdd = () => {
     const completeButton = document.createElement("button");
     completeButton.innerText = "完了"
     completeButton.addEventListener("click", () => {
-        
+        const completeTarget = completeButton.parentNode.parentNode;
+        document.getElementById("imcomplete-list").removeChild(completeTarget);
+        document.getElementById("complete-list").appendChild(completeTarget);
     });
 
     // buttonタグ（削除）の生成
