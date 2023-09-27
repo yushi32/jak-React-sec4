@@ -24,7 +24,7 @@ const onClickAdd = () => {
         const addTarget = completeButton.parentNode.parentNode;
         // 共通処理なので、関数化して呼び出す
         deleteFromIncompleteList(addTarget);
-
+        /*
         // 完了・削除ボタンを消去
         const buttons = addTarget.querySelectorAll("button");
         buttons.forEach(button => {
@@ -34,6 +34,27 @@ const onClickAdd = () => {
         const cancelButton = document.createElement("button");
         cancelButton.innerText = "戻す";
         addTarget.firstChild.appendChild(cancelButton);
+        // 完了リストに追加
+        document.getElementById("complete-list").appendChild(addTarget);
+        */
+
+        // 模範解答
+        // ToDo内容テキストを取得
+        const text = addTarget.firstElementChild.firstElementChild.innerText;
+
+        // div以下を初期化
+        addTarget.firstElementChild.textContent = null;
+
+        // liタグとbuttonタグを生成
+        const p = document.createElement("p");
+        p.innerText = text;
+        const backButton = document.createElement("button");
+        backButton.innerText = "戻す";
+
+        // divタグの子要素にliタグとbuttonタグを追加
+        addTarget.firstElementChild.appendChild(p);
+        addTarget.firstElementChild.appendChild(backButton);
+
         // 完了リストに追加
         document.getElementById("complete-list").appendChild(addTarget);
     });
